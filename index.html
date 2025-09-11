@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PGM Lube - Marine Lubricants</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            background: #f4f7fa;
+            color: #222;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background: url('banner.jpg') center/cover no-repeat fixed;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 30px;
+            overflow: hidden;
+        }
+        .banner-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 34, 102, 0.5);
+            z-index: 1;
+        }
+
+        /* Logo Top Left */
+        .banner-logo {
+            position: absolute;
+            top: 36px;
+            left: 36px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+        }
+        .banner-logo img {
+            height: 100px;
+        }
+        .logo-text {
+            margin-left: 16px;
+        }
+        .logo-text h1 {
+            color: #fff;
+            font-size: 2.1em;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+        }
+        .logo-text h2 {
+            color: #1d8cd8;
+            font-size: 1em;
+            font-weight: 400;
+            margin: 0;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.12);
+        }
+
+        /* Animated gradient behind tagline */
+        .tagline-background {
+            background: linear-gradient(270deg, #1d8cd8, #0056a0, #1d8cd8);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientAnimation 15s ease infinite;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .centered-banner-content {
+            z-index: 2;
+            text-align: center;
+            margin-top: 140px;
+            width: 100%;
+            animation: fadeInDown 1.8s ease-out forwards;
+            position: relative;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 34px;
+            background: #1d8cd8;
+            color: #fff;
+            border-radius: 7px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        .cta-btn:hover {
+            background: #155a96;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating ship animation */
+        .ship {
+            position: absolute;
+            width: 60px;
+            opacity: 0.8;
+            animation: floatShip 20s linear infinite;
+            z-index: 1;
+        }
+        .ship1 { top: 40%; left: -100px; animation-delay: 0s; }
+        .ship2 { top: 60%; left: -150px; animation-delay: 5s; }
+        @keyframes floatShip {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(50vw) translateY(-10px); }
+            100% { transform: translateX(100vw) translateY(0); }
+        }
+
+        /* Section */
+        .section {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+            padding: 36px 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section h3 {
+            color: #003366;
+            margin-top: 0;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        /* Wave divider */
+        .wave-divider {
+            width: 100%;
+            height: 80px;
+            margin-bottom: -5px;
+        }
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Products / Why Choose */
+        .products, .why-choose {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .products li, .why-choose li {
+            background: #e6f0fa;
+            padding: 16px 22px;
+            border-radius: 10px;
+            margin: 0;
+            flex: 1 1 180px;
+            list-style: none;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            cursor: default;
+        }
+        .products li:hover, .why-choose li:hover {
+            background: #d0e4fa;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+        .contact address {
+            font-style: normal;
+            margin-bottom: 10px;
+        }
+        .contact a { color: #1d8cd8; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 10px;
+            background: #003366;
+            color: #fff;
+            font-size: 1em;
+            margin-top: 45px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .banner {
+                height: 60vh;
+                padding-top: 10px;
+            }
+            .banner-logo {
+                top: 10px;
+                left: 10px;
+            }
+            .banner-logo img {
+                height: 60px;
+            }
+            .logo-text h1 {
+                font-size: 1em;
+            }
+            .centered-banner-content {
+                margin-top: 80px;
+            }
+            .centered-banner-content .tagline-background { font-size: 1.1em; }
+            .section { padding: 28px 16px; }
+            .products li, .why-choose li { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="banner-overlay"></div>
+
+        <!-- Floating ships -->
+        <img src="ship1.svg" class="ship ship1" alt="Ship">
+        <img src="ship2.svg" class="ship ship2" alt="Ship">
+
+        <!-- Logo Top Left -->
+        <div class="banner-logo">
+            <img src="pgm-logo.png" alt="PGM Lube Logo">
+            <div class="logo-text">
+                <h1>PGM Lube PTE. LTD.</h1>
+                <h2>Premium Marine Lubricants</h2>
+            </div>
+        </div>
+
+        <!-- Tagline + CTA -->
+        <div class="centered-banner-content">
+            <div class="tagline-background">Premium Marine Lubricants</div>
+            <a href="#contact" class="cta-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="section about">
+        <h3>About Us</h3>
+        <p>PGM Lube is a dedicated brand of PetroGulf, specializing in the development and supply of advanced marine lubricants. Built on decades of industry knowledge, our products are designed to meet the demanding needs of ships and offshore operations worldwide.</p>
+        <p>We combine technical expertise, rigorous quality standards, and a customer-first approach to deliver lubricants that ensure performance, reliability, and long-term protection. From engine oils to hydraulic and specialty products, every solution is engineered to withstand the challenges of marine environments while helping our partners optimize efficiency and reduce downtime.</p>
+        <p>At PGM Lube, we don’t just supply lubricants — we deliver confidence, innovation, and trusted support to keep your fleet moving.</p>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#f4f7fa" d="M0,40 C480,80 960,0 1440,40 L1440,0 L0,0 Z"></path></svg>
+    </div>
+
+    <!-- Products Section -->
+    <section class="section">
+        <h3>Our Products</h3>
+        <ul class="products">
+            <li>Marine Engine Oils</li>
+            <li>Hydraulic Oils</li>
+            <li>Gear Oils</li>
+            <li>Greases & Specialty Lubricants</li>
+        </ul>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#f4f7fa" d="M0,40 C480,0 960,80 1440,40 L1440,0 L0,0 Z"></path></svg>
+    </div>
+
+    <!-- Why Choose Section -->
+    <section class="section">
+        <h3>Why Choose PGM Lube?</h3>
+        <ul class="why-choose">
+            <li>Global Marine Expertise</li>
+            <li>Proven Performance & Reliability</li>
+            <li>Comprehensive Technical Support</li>
+            <li>Quality Assured Formulations</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <h3>Contact Us</h3>
+        <address>
+            25 International Business Park<br>
+            Office #02-13, German Centre<br>
+            Singapore 609916
+        </address>
+        <p>Email: <a href="mailto:info@pgmlube.com">info@pgmlube.com</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 PGM Lube PTE. LTD.</p>
+    </footer>
+
+    <!-- Scroll Reveal Animation Script -->
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const revealSection = () => {
+            const triggerBottom = window.innerHeight / 1.1;
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if(sectionTop < triggerBottom) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealSection);
+        window.addEventListener('load', revealSection);
+    </script>
+
+</body>
+</html>

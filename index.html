@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Global Styles */
         body {
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
@@ -24,9 +25,9 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: flex-start;
-            padding-top: 30px;
+            padding-top: 50px;
             overflow: hidden;
         }
         .banner-overlay {
@@ -34,36 +35,6 @@
             top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0, 34, 102, 0.5);
             z-index: 1;
-        }
-
-        /* Logo Top Left */
-        .banner-logo {
-            position: absolute;
-            top: 36px;
-            left: 36px;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-        }
-        .banner-logo img {
-            height: 100px;
-        }
-        .logo-text {
-            margin-left: 16px;
-        }
-        .logo-text h1 {
-            color: #fff;
-            font-size: 2.1em;
-            margin: 0;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.18);
-        }
-        .logo-text h2 {
-            color: #1d8cd8;
-            font-size: 1em;
-            font-weight: 400;
-            margin: 0;
-            text-shadow: 0 1px 8px rgba(0,0,0,0.12);
         }
 
         /* Animated gradient behind tagline */
@@ -78,19 +49,26 @@
             margin-bottom: 20px;
             text-shadow: 0 1px 6px rgba(0,0,0,0.4);
         }
+
         @keyframes gradientAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
+        .banner-logo {
+            z-index: 2;
+            margin-bottom: 20px;
+        }
+        .banner-logo img {
+            height: 120px;
+        }
+
         .centered-banner-content {
             z-index: 2;
             text-align: center;
-            margin-top: 140px;
-            width: 100%;
+            margin-top: 20px;
             animation: fadeInDown 1.8s ease-out forwards;
-            position: relative;
         }
 
         .cta-btn {
@@ -214,20 +192,10 @@
         @media (max-width: 768px) {
             .banner {
                 height: 60vh;
-                padding-top: 10px;
-            }
-            .banner-logo {
-                top: 10px;
-                left: 10px;
+                padding-top: 30px;
             }
             .banner-logo img {
-                height: 60px;
-            }
-            .logo-text h1 {
-                font-size: 1em;
-            }
-            .centered-banner-content {
-                margin-top: 80px;
+                height: 90px;
             }
             .centered-banner-content .tagline-background { font-size: 1.1em; }
             .section { padding: 28px 16px; }
@@ -245,13 +213,9 @@
         <img src="ship1.svg" class="ship ship1" alt="Ship">
         <img src="ship2.svg" class="ship ship2" alt="Ship">
 
-        <!-- Logo Top Left -->
+        <!-- Logo -->
         <div class="banner-logo">
             <img src="pgm-logo.png" alt="PGM Lube Logo">
-            <div class="logo-text">
-                <h1>PGM Lube PTE. LTD.</h1>
-                <h2>Premium Marine Lubricants</h2>
-            </div>
         </div>
 
         <!-- Tagline + CTA -->
@@ -264,9 +228,9 @@
     <!-- About Section -->
     <section class="section about">
         <h3>About Us</h3>
-        <p>PGM Lube is a dedicated brand of PetroGulf, specializing in the development and supply of advanced marine lubricants. Built on decades of industry knowledge, our products are designed to meet the demanding needs of ships and offshore operations worldwide.</p>
-        <p>We combine technical expertise, rigorous quality standards, and a customer-first approach to deliver lubricants that ensure performance, reliability, and long-term protection. From engine oils to hydraulic and specialty products, every solution is engineered to withstand the challenges of marine environments while helping our partners optimize efficiency and reduce downtime.</p>
-        <p>At PGM Lube, we don’t just supply lubricants — we deliver confidence, innovation, and trusted support to keep your fleet moving.</p>
+        <p>PGM Lube is a dedicated brand of PetroGulf, specializing in advanced marine lubricants for ships and offshore operations worldwide.</p>
+        <p>We combine technical expertise, rigorous quality standards, and a customer-first approach to ensure performance, reliability, and long-term protection.</p>
+        <p>At PGM Lube, we deliver confidence, innovation, and trusted support to keep your fleet moving efficiently.</p>
     </section>
 
     <div class="wave-divider">
@@ -312,7 +276,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 PGM Lube PTE. LTD.</p>
+        <p>© 2025 PGM Lube</p>
     </footer>
 
     <!-- Scroll Reveal Animation Script -->

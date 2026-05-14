@@ -5,8 +5,8 @@
     <title>PGM Lube - Marine Lubricants</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
-        /* Global Styles */
         body {
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
@@ -15,9 +15,9 @@
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
+
         a { text-decoration: none; }
 
-        /* Banner */
         .banner {
             width: 100%;
             height: 100vh;
@@ -30,6 +30,7 @@
             padding-top: 50px;
             overflow: hidden;
         }
+
         .banner-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -37,7 +38,6 @@
             z-index: 1;
         }
 
-        /* Animated gradient behind tagline */
         .tagline-background {
             background: linear-gradient(270deg, #1d8cd8, #0056a0, #1d8cd8);
             background-size: 600% 600%;
@@ -60,6 +60,7 @@
             z-index: 2;
             margin-bottom: 20px;
         }
+
         .banner-logo img {
             height: 120px;
         }
@@ -69,6 +70,11 @@
             text-align: center;
             margin-top: 20px;
             animation: fadeInDown 1.8s ease-out forwards;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .cta-btn {
@@ -82,34 +88,13 @@
             transition: 0.3s;
             box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
+
         .cta-btn:hover {
             background: #155a96;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.25);
         }
 
-        @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Floating ship animation */
-        .ship {
-            position: absolute;
-            width: 60px;
-            opacity: 0.8;
-            animation: floatShip 20s linear infinite;
-            z-index: 1;
-        }
-        .ship1 { top: 40%; left: -100px; animation-delay: 0s; }
-        .ship2 { top: 60%; left: -150px; animation-delay: 5s; }
-        @keyframes floatShip {
-            0% { transform: translateX(0) translateY(0); }
-            50% { transform: translateX(50vw) translateY(-10px); }
-            100% { transform: translateX(100vw) translateY(0); }
-        }
-
-        /* Section */
         .section {
             max-width: 960px;
             margin: 0 auto;
@@ -121,10 +106,12 @@
             transform: translateY(20px);
             transition: all 1s ease;
         }
+
         .section.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .section h3 {
             color: #003366;
             margin-top: 0;
@@ -132,53 +119,54 @@
             text-align: center;
         }
 
-        /* Wave divider */
         .wave-divider {
             width: 100%;
             height: 80px;
             margin-bottom: -5px;
         }
+
         .wave-divider svg {
             display: block;
             width: 100%;
             height: 100%;
         }
 
-        /* Products / Why Choose */
         .products, .why-choose {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
         }
+
         .products li, .why-choose li {
             background: #e6f0fa;
             padding: 16px 22px;
             border-radius: 10px;
-            margin: 0;
             flex: 1 1 180px;
             list-style: none;
             text-align: center;
             transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-            cursor: default;
         }
+
         .products li:hover, .why-choose li:hover {
             background: #d0e4fa;
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* Contact */
         .contact {
             text-align: center;
         }
+
         .contact address {
             font-style: normal;
             margin-bottom: 10px;
         }
-        .contact a { color: #1d8cd8; }
 
-        /* Footer */
+        .contact a {
+            color: #1d8cd8;
+        }
+
         footer {
             text-align: center;
             padding: 30px 10px;
@@ -188,56 +176,75 @@
             margin-top: 45px;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .banner {
                 height: 60vh;
                 padding-top: 30px;
             }
+
             .banner-logo img {
                 height: 90px;
             }
-            .centered-banner-content .tagline-background { font-size: 1.1em; }
-            .section { padding: 28px 16px; }
-            .products li, .why-choose li { flex: 1 1 100%; }
+
+            .tagline-background {
+                font-size: 1.1em;
+            }
+
+            .section {
+                padding: 28px 16px;
+            }
+
+            .products li, .why-choose li {
+                flex: 1 1 100%;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Banner -->
     <div class="banner">
         <div class="banner-overlay"></div>
 
-        <!-- Floating ships -->
-        <img src="ship1.svg" class="ship ship1" alt="Ship">
-        <img src="ship2.svg" class="ship ship2" alt="Ship">
-
-        <!-- Logo -->
         <div class="banner-logo">
             <img src="pgm-logo.png" alt="PGM Lube Logo">
         </div>
 
-        <!-- Tagline + CTA -->
         <div class="centered-banner-content">
             <div class="tagline-background">Premium Marine Lubricants</div>
             <a href="#contact" class="cta-btn">Contact Us</a>
         </div>
     </div>
 
-    <!-- About Section -->
+    <!-- About Us -->
     <section class="section about">
-        <h3>About Us</h3>
-        <p>PGM Lube is a dedicated brand of PetroGulf, specializing in advanced marine lubricants for ships and offshore operations worldwide.</p>
-        <p>We combine technical expertise, rigorous quality standards, and a customer-first approach to ensure performance, reliability, and long-term protection.</p>
-        <p>At PGM Lube, we deliver confidence, innovation, and trusted support to keep your fleet moving efficiently.</p>
+        <h3>About PGM Lube PTE. LTD</h3>
+        <p>
+            PGM Lube PTE. LTD is a Singapore-based marine lubricant supplier specializing in high-performance lubrication solutions for the global maritime and offshore industry.
+        </p>
+        <p>
+            We are committed to delivering reliable, technically advanced, and application-specific lubricant products that support the operational efficiency, safety, and longevity of marine engines and critical onboard systems.
+        </p>
+        <p>
+            Operating from Singapore—one of the world’s leading maritime hubs—PGM Lube leverages strong industry connectivity, technical expertise, and stringent quality standards to serve ship operators, fleet managers, and offshore service providers across international waters.
+        </p>
+        <p>
+            Our product portfolio includes marine engine oils, hydraulic fluids, gear oils, greases, and specialty lubricants engineered to meet demanding operational conditions and OEM performance requirements.
+        </p>
+        <p>
+            At PGM Lube, we focus on consistency, compliance, and customer trust. Every solution we deliver is backed by technical understanding, quality assurance, and a commitment to supporting uninterrupted marine operations worldwide.
+        </p>
+        <p>
+            We continue to strengthen our presence as a dependable partner in the marine lubrication sector through innovation, service reliability, and long-term customer relationships.
+        </p>
     </section>
 
     <div class="wave-divider">
-        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#f4f7fa" d="M0,40 C480,80 960,0 1440,40 L1440,0 L0,0 Z"></path></svg>
+        <svg viewBox="0 0 1440 80"><path fill="#f4f7fa" d="M0,40 C480,80 960,0 1440,40 L1440,0 L0,0 Z"></path></svg>
     </div>
 
-    <!-- Products Section -->
+    <!-- Products -->
     <section class="section">
         <h3>Our Products</h3>
         <ul class="products">
@@ -249,10 +256,10 @@
     </section>
 
     <div class="wave-divider">
-        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#f4f7fa" d="M0,40 C480,0 960,80 1440,40 L1440,0 L0,0 Z"></path></svg>
+        <svg viewBox="0 0 1440 80"><path fill="#f4f7fa" d="M0,40 C480,0 960,80 1440,40 L1440,0 L0,0 Z"></path></svg>
     </div>
 
-    <!-- Why Choose Section -->
+    <!-- Why Choose -->
     <section class="section">
         <h3>Why Choose PGM Lube?</h3>
         <ul class="why-choose">
@@ -263,7 +270,7 @@
         </ul>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section class="section contact" id="contact">
         <h3>Contact Us</h3>
         <address>
@@ -271,26 +278,28 @@
             Office #02-13, German Centre<br>
             Singapore 609916
         </address>
-        <p>Email: <a href="mailto:info@pgmlube.com">info@pgmlube.com</a></p>
+
+        <p>Email: <a href="mailto:service@pgmlube.com">service@pgmlube.com</a></p>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 PGM Lube</p>
     </footer>
 
-    <!-- Scroll Reveal Animation Script -->
     <script>
         const sections = document.querySelectorAll('.section');
+
         const revealSection = () => {
             const triggerBottom = window.innerHeight / 1.1;
+
             sections.forEach(section => {
                 const sectionTop = section.getBoundingClientRect().top;
-                if(sectionTop < triggerBottom) {
+                if (sectionTop < triggerBottom) {
                     section.classList.add('visible');
                 }
             });
-        }
+        };
+
         window.addEventListener('scroll', revealSection);
         window.addEventListener('load', revealSection);
     </script>
